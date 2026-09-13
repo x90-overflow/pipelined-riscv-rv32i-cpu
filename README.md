@@ -38,9 +38,9 @@ ADD, SUB, AND, OR, XOR, SLL, SRL, SRA, SLT, SLTU, ADDI, ANDI, ORI, XORI, SLTI, L
 ## Toolchain
 
 ## Directory Layout
-rtl/  : CPU cores, Datapath, Controlpath, Data and Instruction Memories
-fpga/ : FPGA top module, Pin Constraints, Makefile, Instruction File
-verification/ : cocotb Tests, cocotb Reference Models, RISC-V Mini Assembler, Simulation Makefile
-instruction_generation/ : Hex Program Generators
+- rtl/  : CPU cores, Datapath, Controlpath, Data and Instruction Memories
+- fpga/ : FPGA top module, Pin Constraints, Makefile, Instruction File
+- verification/ : cocotb Tests, cocotb Reference Models, RISC-V Mini Assembler, Simulation Makefile
+- instruction_generation/ : Hex Program Generators
 
 Built by: Elif Ilgin Ozdemir (x90 overflow)
