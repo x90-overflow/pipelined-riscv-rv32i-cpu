@@ -32,10 +32,26 @@ TangNano9k FPGA implementation via a LED counter and UART peripheral showing wor
 ADD, SUB, AND, OR, XOR, SLL, SRL, SRA, SLT, SLTU, ADDI, ANDI, ORI, XORI, SLTI, LW, SW, BEQ, BNE, BLT, BGE, BLTU, BGEU, JAL, JALR, LUI, AUIPC
 
 ## Verification
+Simulation made with cocotb (Python) and Icarus Verilog. Architectural end state is checked compared to an independent reference Python ISA model.
+- Unit Tests: ALU_test, branch_decode_test, immediate_gen_test
+- Directed Tests on Cores: ALU, Load/Store, Branches and Jumps (cpu_top_test)
+  - Bug found: Writeback -> Decode three ahead forwarding hole.
+- Constrained-Random Testing: non-branching/jumping programs
+  - Bug found: AND/OR swap in funct3 (alu_control.v)
+- Functional Coverage Test: Redirects, stalls and forwarding.
 
-## FPGA Specifications
+## FPGA Specifications (https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-9K/Nano-9K.html)
+
+TangNano9K, GW1NR-LV9QN88PC6/I5 FPGA
+- Clock Frequency: 27 MHz
+- 8640 LUTs, 6480 FFs, 6 LEDs
+- USB-JTAG & USB-UART 
 
 ## Toolchain
+OSS CAD SUITE:
+- Yosys (synthesizer)
+- nextpnr (place-and-route), Project Apicula (Gowin specific)
+- openFPGALoader (flashing bitsream)
 
 ## Directory Layout
 - rtl/  : CPU cores, Datapath, Controlpath, Data and Instruction Memories
